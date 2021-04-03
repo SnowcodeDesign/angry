@@ -50,6 +50,32 @@ function handleAngryAmount(amount) {
     setAngerShakiness(shakiness);
 }
 
+/* Flow for Footer Attr/Credits */
+function handleFooterClick() {
+    const footerBodyElement = document.getElementById("footer-body");
+
+    if (!footerBodyElement.style.display || footerBodyElement.style.display === 'none') {
+        footerBodyElement.style.display = 'inherit';
+    } else {
+        const duplicated = footerBodyElement.cloneNode(true);
+        duplicated.style.animation = 'reveal 0.55s ease-in-out 0s 1 reverse';
+        footerBodyElement.parentNode.replaceChild(duplicated, footerBodyElement);
+
+        setTimeout(() => {
+            const original = duplicated.cloneNode(true);
+            original.id = "footer-body";
+            original.addEventListener("click", (event) => {
+                handleFooterClick();
+            });
+            
+            original.style.display = 'none';
+            original.style.animation = 'reveal 0.55s ease-in-out';
+            duplicated.parentNode.replaceChild(original, duplicated);
+        }, 550);
+    }
+
+}
+
 /* Init / Load Funcs */
 function loadAngryFonts() {
     const preloadFontWeights = [200, 300, 400, 700];
@@ -82,4 +108,15 @@ function loadAngry() {
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
+
+    const footerElement = document.getElementById("footer-coffee");
+    const footerBodyElement = document.getElementById("footer-body");
+
+    footerElement.addEventListener("click", (event) => {
+        handleFooterClick();
+    });
+
+    footerBodyElement.addEventListener("click", (event) => {
+        handleFooterClick();
+    });
 }

@@ -90,6 +90,14 @@ Julian Weiss
 Aaron Zehm
 ```
 
+## ℹ️ Credits
+
+- Font is Londrina Solid from Google Fonts https://fonts.google.com/specimen/Londrina+Solid
+- Icons are attribution-free via The Noun Project. Designed by Alex Muravev, RU https://thenounproject.com/alex2900
+- Shake CSS animation inspired by https://css-tricks.com/snippets/css/shake-css-keyframe-animation
+- Hosting via Netlify (free plan), which secures its own SSL via Let's Encrypt
+- Domain via Namecheap
+
 ## 🔓 License
 
 See [LICENSE](LICENSE). 
