@@ -5,15 +5,11 @@ html, body {
     background: #EA313D;
 }
 
-html {
-    min-width: 500px;
-    min-height: 390px;
-}
-
 /** Global Config */
 
 * {
     user-select: none;
+    -webkit-user-select: none;
 }
 
 /** Global Variables */
@@ -73,24 +69,31 @@ html {
 /** Background */
 
 #background {
-    position: 'absolute';
+    position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
 
     background-color: var(--angry-bg);
+
+    overflow: scroll;
 }
 
 /** Container */
 
 #container {
+    min-width: 450px;
+    min-height: 400px;
+
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
 
     width: 100%;
     height: 100%;
+    
 }
 
 /** Button */

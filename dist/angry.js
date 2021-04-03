@@ -61,6 +61,8 @@ function loadAngryFonts() {
             preloadNode.style.fontFamily = fontFamily;
             preloadNode.style.fontWeight = fontWeight;
             preloadNode.style.opacity = 0;
+            preloadNode.style.position = "fixed";
+            preloadNode.style.top = "100%";
             document.body.appendChild(preloadNode);
         }
     }
