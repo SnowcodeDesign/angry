@@ -146,10 +146,13 @@ function playAngrySFX(name) {
 }
 
 /* GIF Handling */
-function playAngerGIF(name, mask=null) {
+function playAngerGIF(name, mask=null, degrees=null, removeExistingGifs=false) {
     const gifsContainer = document.getElementById('anger-gifs');
-    while (gifsContainer.firstChild) {
-        gifsContainer.removeChild(gifsContainer.firstChild);
+
+    if (removeExistingGifs && removeExistingGifs === true) {
+        while (gifsContainer.firstChild) {
+            gifsContainer.removeChild(gifsContainer.firstChild);
+        }
     }
     
     if (!name) {
@@ -162,8 +165,20 @@ function playAngerGIF(name, mask=null) {
     gifElement.style.position = 'fixed';
     gifElement.style.width = '120px';
     gifElement.style.height = '120px';
-    gifElement.style.top = '10%';
-    gifElement.style.left  = '10%';
+
+    const degreesNonNull = degrees ? degrees : 0;
+    const radius = 170;
+    const buttonRect = document.getElementById("button-hand").getBoundingClientRect();
+    const centerX = buttonRect.x + (buttonRect.width / 2) - 50;
+    const centerY = buttonRect.y + (buttonRect.height / 2) - 50;
+    const degreesToRadians = degrees * (Math.PI / 180);
+    const radiusX = radius * Math.cos(degreesToRadians);
+    const radiusY = radius * Math.sin(degreesToRadians);
+    const positionX = centerX + radiusX;
+    const positionY = centerY + radiusY;
+    gifElement.style.top = `${positionY}px`;
+    gifElement.style.left  = `${positionX}px`;
+
     gifElement.style.objectFit = 'cover';
     gifElement.style.borderRadius = '10px';
     gifElement.style.backgroundColor = 'rgba(0,0,0,0.2)';
@@ -177,6 +192,14 @@ function playAngerGIF(name, mask=null) {
     }
 
     gifsContainer.appendChild(gifElement);
+
+    // TODO: lock height because the gifs do not layout relatively
+    const rootContainer = document.getElementById("container");
+    if (!rootContainer.getAttribute("locked")) {
+        rootContainer.setAttribute("locked", true);
+        rootContainer.style.width = `${window.innerWidth}px`;
+        rootContainer.style.height = `${window.innerHeight}px`;
+    }
 }
 
 /* Core Flow: Handlers for Anger Level */
@@ -192,13 +215,13 @@ function handleAngryAmount(amount) {
         dataForAngeryLevel = ANGRY_GAMEPLAY[maxAngerLevelWithText];
     }
 
-    const { text, fontWeight, shakiness, sfx, gif, mask, color } = dataForAngeryLevel;
+    const { text, fontWeight, shakiness, sfx, gif, mask, color, degrees } = dataForAngeryLevel;
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
     setAngerBackgroundColor(color);
     playAngrySFX(sfx);
-    playAngerGIF(gif, mask);
+    playAngerGIF(gif, mask, degrees);
 }
 
 /* Flow for Footer Attr/Credits */
@@ -255,12 +278,12 @@ function loadAngry() {
         handleAngryAmount(angry_clicks);
     });
 
-    const { text, fontWeight, shakiness, gif, mask, color } = ANGRY_GAMEPLAY[0];
+    const { text, fontWeight, shakiness, gif, mask, color, degrees } = ANGRY_GAMEPLAY[0];
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
     setAngerBackgroundColor(color);
-    playAngerGIF(gif, mask);
+    playAngerGIF(gif, mask, degrees, true);
 
     const footerElement = document.getElementById("footer-coffee");
     const footerBodyElement = document.getElementById("footer-body");

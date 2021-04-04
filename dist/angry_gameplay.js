@@ -29,7 +29,7 @@ const ANGRY_GAMEPLAY = {
         gif:  "u0kxUtHbdCKs0.webp",
         mask: "irregular1.png",
         color: "C0CC0C",
-        degrees: 315
+        degrees: 270
     },
     2: {
         text: "you're angry.",
@@ -38,7 +38,8 @@ const ANGRY_GAMEPLAY = {
         sfx: "soAnger",
         gif:  "1yiPpiqnOINUovWlCq.gif",
         mask: "irregular2.png",
-        color: "C4A613"
+        color: "C4A613",
+        degrees: 180
     },
     3: {
         text: "ok, very angry?",
@@ -47,7 +48,8 @@ const ANGRY_GAMEPLAY = {
         sfx: "cryTwo",
         gif:  "3o7bu8mwh3U6SXtLjy.webp",
         mask: "irregular3.png",
-        color: "C5801F"
+        color: "C5801F",
+        degrees: 90
     },
     4: {
         text: "confirmed: super angry",
@@ -56,7 +58,8 @@ const ANGRY_GAMEPLAY = {
         sfx: "cryThree",
         gif:  "fBGj9VkflVGgeMUbje.webp",
         mask: "irregular4.png",
-        color: "C75927"
+        color: "C75927",
+        degrees: 0
     },
     5: {
         text: "red alert red alert how angry can you get",
@@ -65,7 +68,8 @@ const ANGRY_GAMEPLAY = {
         sfx: "cryTwo",
         gif:  "VgfPDtZemTEHLaHnP1.webp",
         mask: "irregular5.png",
-        color: "CA3230"
+        color: "CA3230",
+        degrees: 130
     },
     6: {
         text: "activated emergency angry mode",
@@ -74,7 +78,8 @@ const ANGRY_GAMEPLAY = {
         sfx: "soAnger",
         gif: "XEVHFzjPzjQy1uCulo.webp",
         mask: "irregular1.png",
-        color: "CC0D39"
+        color: "CC0D39",
+        degrees: 320
     },
     7: {
         text: "unlocked: nothing",
