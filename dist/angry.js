@@ -60,11 +60,33 @@ function loadAllAudioTracks() {
             angry_playing_audio = null;
         }
     });
-    
+
+    const soAngerFilename = '344003__reitanna__so-anger.mp3';
+    const soAnger = new Audio(`sfx/${soAngerFilename}`);
+    soAnger.load();
+
+    soAnger.addEventListener('ended', (event) => {
+        if (soAnger === angry_playing_audio) {
+            angry_playing_audio = null;
+        }
+    });
+
+    const frustrationFilename = '180342__jorickhoofd__screams-of-frustration-2.mp3';
+    const frustration = new Audio(`sfx/${frustrationFilename}`);
+    frustration.load();
+
+    frustration.addEventListener('ended', (event) => {
+        if (frustration === angry_playing_audio) {
+            angry_playing_audio = null;
+        }
+    });
+
     angry_audio_players = {
         record,
         cryTwo,
-        cryThree
+        cryThree,
+        soAnger,
+        frustration
     };
 }
 
@@ -92,7 +114,7 @@ function playAngrySFX(name) {
 
     const audioToPlay = angry_audio_players[name];
     if (!audioToPlay) {
-        return; // not loaded yet
+        return; // not loaded yet (or no audio is meant to be played)
     }
 
     angry_playing_audio = audioToPlay;
@@ -172,7 +194,7 @@ function loadAngry() {
     loadAngryFonts();
     loadAllAudioTracks();
 
-    const buttonElement = document.getElementById("button-image");
+    const buttonElement = document.getElementById("button-hand");
     
     buttonElement.addEventListener("click", (event) => {
         angry_clicks = angry_clicks + 1;

@@ -23,57 +23,68 @@ const ANGRY_CAPTION_TEXTS = {
     0: {
         text: "am i angry?",
         fontWeight: 200,
-        shakiness: 0
+        shakiness: 0,
+        sfx: ""
     },
     1: {
         text: "oh angry, much?",
         fontWeight: 300,
-        shakiness: 1
+        shakiness: 1,
+        sfx: "frustration"
     },
     2: {
         text: "you're angry.",
         fontWeight: 300,
-        shakiness: 2
+        shakiness: 2,
+        sfx: "soAnger"
     },
     3: {
         text: "ok, very angry?",
         fontWeight: 400,
-        shakiness: 3
+        shakiness: 3,
+        sfx: "cryTwo"
     },
     4: {
         text: "confirmed: super angry",
         fontWeight: 400,
-        shakiness: 6
+        shakiness: 6,
+        sfx: "cryThree"
     },
     5: {
         text: "red alert red alert how angry can you get",
         fontWeight: 700,
-        shakiness: 8
+        shakiness: 8,
+        sfx: "cryTwo"
     },
     6: {
         text: "activated emergency angry mode",
         fontWeight: 700,
-        shakiness: 10
+        shakiness: 10,
+        sfx: "cryThree"
     },
     7: {
         text: "unlocked: nothing",
         fontWeight: 200,
-        shakiness: 0
+        shakiness: 0,
+        sfx: ""
     },
     8: {
         text: "now you have a tomato",
         fontWeight: 400,
-        shakiness: 11
+        shakiness: 11,
+        sfx: "cryThree"
     },
     9: {
         text: " ",
         fontWeight: 400,
-        shakiness: 0
+        shakiness: 0,
+        sfx: ""
     },
     10: {
         text: "alright you reached max angertude for now",
         fontWeight: 200,
-        shakiness: 100
+        shakiness: 100,
+        sfx: "cryTwo"
     }
 
 };
@@ -96,6 +107,9 @@ Aaron Zehm
    - human-boy-three-years-old-cry-002.mp3
    - human-boy-three-years-old-cry-003.mp3
    - tspt_vinyl_needle_scratch_01_095.mp3
+- Sound Effects are also from FreeSound https://freesound.org/
+   - Reitanna https://freesound.org/people/Reitanna/sounds/344003/
+   - jorickhoofd https://freesound.org/people/jorickhoofd/sounds/180342/
 - Font is Londrina Solid from Google Fonts https://fonts.google.com/specimen/Londrina+Solid
 - Icons are attribution-free via The Noun Project. Designed by Alex Muravev, RU https://thenounproject.com/alex2900
 - Shake CSS animation inspired by https://css-tricks.com/snippets/css/shake-css-keyframe-animation

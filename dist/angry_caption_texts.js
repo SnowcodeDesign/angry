@@ -15,13 +15,13 @@ const ANGRY_CAPTION_TEXTS = {
         text: "oh angry, much?",
         fontWeight: 300,
         shakiness: 1,
-        sfx: "cryTwo"
+        sfx: "frustration"
     },
     2: {
         text: "you're angry.",
         fontWeight: 300,
         shakiness: 2,
-        sfx: "cryThree"
+        sfx: "soAnger"
     },
     3: {
         text: "ok, very angry?",
