@@ -249,6 +249,13 @@ html, body {
     text-decoration: underline;
 }
 
+#footer-fineprint {
+    line-height: 1;
+    font-size: 8px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.2);
+}
+
 #github-button {
     width: 82%;
     border-radius: 22px;

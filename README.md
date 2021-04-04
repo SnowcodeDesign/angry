@@ -92,6 +92,10 @@ Aaron Zehm
 
 ## ℹ️ Credits
 
+- Sound Effects are from Zapsplat https://www.zapsplat.com/
+   - human-boy-three-years-old-cry-002.mp3
+   - human-boy-three-years-old-cry-003.mp3
+   - tspt_vinyl_needle_scratch_01_095.mp3
 - Font is Londrina Solid from Google Fonts https://fonts.google.com/specimen/Londrina+Solid
 - Icons are attribution-free via The Noun Project. Designed by Alex Muravev, RU https://thenounproject.com/alex2900
 - Shake CSS animation inspired by https://css-tricks.com/snippets/css/shake-css-keyframe-animation

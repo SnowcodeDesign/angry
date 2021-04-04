@@ -1,5 +1,7 @@
 /* Variables */
 var angry_clicks = 0;
+var angry_audio_players = {};
+var angry_playing_audio = null;
 
 /* DOM Set/Get Funcs */
 function getAngerCaptionTextElement() {
@@ -31,23 +33,95 @@ function setAngerShakiness(shakiness) {
     }
 }
 
+/* SFX Flow */
+function loadAllAudioTracks() {
+    const recordScratchFilename = 'tspt_vinyl_needle_scratch_01_095.mp3';
+    const record = new Audio(`sfx/${recordScratchFilename}`);
+    record.volume = 0.4;
+    record.load();
+
+    const cryTwoFilename = 'human-boy-three-years-old-cry-002.mp3';
+    const cryTwo = new Audio(`sfx/${cryTwoFilename}`);
+    cryTwo.load();
+
+    cryTwo.addEventListener('ended', (event) => {
+        if (cryTwo === angry_playing_audio) {
+            angry_playing_audio = null;
+        }
+    });
+
+    const cryThreeFilename = 'human-boy-three-years-old-cry-003.mp3';
+    const cryThree = new Audio(`sfx/${cryThreeFilename}`);
+    cryThree.load();
+
+    cryThree.addEventListener('ended', (event) => {
+        if (cryThree === angry_playing_audio) {
+            angry_playing_audio = null;
+        }
+    });
+    
+    angry_audio_players = {
+        record,
+        cryTwo,
+        cryThree
+    };
+}
+
+function playAngryRecordScratch() {
+    const recordAudio = angry_audio_players.record;
+    if (!recordAudio) {
+        return; // not loaded yet
+    }
+
+    recordAudio.currentTime = 0;
+    recordAudio.play();
+}
+
+/**
+ * Play the given audio with the human-readable name from the `angry_audio_players` global var. 
+ * This it NOT the filename, because the audio tracks are preloaded before use.
+ * @param {*} name record, cryTwo, or cryTrhee
+ */
+function playAngrySFX(name) {
+    if (angry_playing_audio) {
+        playAngryRecordScratch();
+        angry_playing_audio.pause();
+        angry_playing_audio = null;
+    }
+
+    const audioToPlay = angry_audio_players[name];
+    if (!audioToPlay) {
+        return; // not loaded yet
+    }
+
+    angry_playing_audio = audioToPlay;
+    
+    audioToPlay.currentTime = 0;
+    
+    // const playingAudio = new Audio(`sfx/${audioToPlay}`);
+    // angry_playing_audio = playingAudio;
+
+    audioToPlay.play();
+}
+
 /* Core Flow: Handlers for Anger Level */
 function handleAngryAmount(amount) {
     // change text
-    const dataForAngeryLevel = ANGRY_CAPTION_TEXTS[amount];
+    let dataForAngeryLevel = ANGRY_CAPTION_TEXTS[amount];
 
     if (!dataForAngeryLevel) {
         const sortedAngerLevels = Object.keys(ANGRY_CAPTION_TEXTS);
-        sortedAngerLevels.sort();
+        sortedAngerLevels.map(key => parseInt(key, 10)).sort();
 
-        const maxAngerLevelWithText = sortedAngerLevels[0];
+        const maxAngerLevelWithText = sortedAngerLevels[sortedAngerLevels.length-1];
         dataForAngeryLevel = ANGRY_CAPTION_TEXTS[maxAngerLevelWithText];
     }
 
-    const { text, fontWeight, shakiness } = dataForAngeryLevel;
+    const { text, fontWeight, shakiness, sfx } = dataForAngeryLevel;
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
+    playAngrySFX(sfx);
 }
 
 /* Flow for Footer Attr/Credits */
@@ -96,6 +170,7 @@ function loadAngryFonts() {
 
 function loadAngry() {
     loadAngryFonts();
+    loadAllAudioTracks();
 
     const buttonElement = document.getElementById("button-image");
     
