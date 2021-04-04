@@ -35,6 +35,8 @@ function setAngerBackgroundColor(color) {
 
     const element = getAngerBackgroundElement();
     element.style.backgroundColor = color;
+    document.body.style.backgroundColor = color;
+    document.body.parentElement.style.backgroundColor = color;
 }
 
 function setAngerShakiness(shakiness) {

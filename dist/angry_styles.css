@@ -1,22 +1,9 @@
-/** CSS Setup */
-
-html, body {
-    margin: 0;
-    background: #EA313D;
-}
-
-/** Global Config */
-
-* {
-    user-select: none;
-    -webkit-user-select: none;
-}
 
 /** Global Variables */
 
 :root {
     /* 100% of UI, transparent layers on top */
-    --angry-bg: #EA313D;
+    --angry-bg: rgba(150, 239, 46, 1);
 
     /* top 75% of UI */
     --angry-button-bg: rgba(61, 29, 29, 0.2);
@@ -33,6 +20,19 @@ html, body {
     --angry-text-color: rgba(255, 255, 255, 1);
 }
 
+/** CSS Setup */
+
+html, body {
+    margin: 0;
+    background: var(--angry-bg);
+}
+
+/** Global Config */
+
+* {
+    user-select: none;
+    -webkit-user-select: none;
+}
 
 /** Animations */
 

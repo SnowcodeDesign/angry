@@ -15,11 +15,11 @@
  */
 const ANGRY_GAMEPLAY = {
     0: {
-        text: "am i angry?",
+        text: "how mad are you today?",
         fontWeight: 200,
         shakiness: 0,
         sfx: "",
-        color: "EA313D"
+        color: "var(--angry-bg)"
     },
     1: {
         text: "oh angry, much?",
@@ -52,7 +52,7 @@ const ANGRY_GAMEPLAY = {
         shakiness: 6,
         sfx: "cryThree",
         gif:  "fBGj9VkflVGgeMUbje.webp",
-        mask: "irregular1.png"
+        mask: "irregular4.png"
     },
     5: {
         text: "red alert red alert how angry can you get",
@@ -60,7 +60,7 @@ const ANGRY_GAMEPLAY = {
         shakiness: 8,
         sfx: "cryTwo",
         gif:  "VgfPDtZemTEHLaHnP1.webp",
-        mask: "irregular3.png"
+        mask: "irregular5.png"
     },
     6: {
         text: "activated emergency angry mode",
@@ -68,7 +68,7 @@ const ANGRY_GAMEPLAY = {
         shakiness: 10,
         sfx: "cryThree",
         gif: "XEVHFzjPzjQy1uCulo.webp",
-        mask: "irregular2.png"
+        mask: "irregular1.png"
     },
     7: {
         text: "unlocked: nothing",
