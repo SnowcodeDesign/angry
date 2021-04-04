@@ -16,6 +16,7 @@ function setAngerCaptionText(text) {
     const element = getAngerCaptionTextElement();
     const uppercasedText = text.toUpperCase();
     element.textContent = uppercasedText;
+    document.title = text && text !== " " ? text : "how mad are you today";
 }
 
 function setAngerFontWeight(fontWeight) {
@@ -145,9 +146,8 @@ function handleFooterClick() {
             original.style.display = 'none';
             original.style.animation = 'reveal 0.55s ease-in-out';
             duplicated.parentNode.replaceChild(original, duplicated);
-        }, 550);
+        }, 540);
     }
-
 }
 
 /* Init / Load Funcs */
