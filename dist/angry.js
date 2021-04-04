@@ -37,6 +37,9 @@ function setAngerBackgroundColor(color) {
     element.style.backgroundColor = color;
     document.body.style.backgroundColor = color;
     document.body.parentElement.style.backgroundColor = color;
+
+    const footerBody = document.getElementById("footer-body");
+    footerBody.style.color = color;
 }
 
 function setAngerShakiness(shakiness) {

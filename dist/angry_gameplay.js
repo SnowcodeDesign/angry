@@ -28,7 +28,8 @@ const ANGRY_GAMEPLAY = {
         sfx: "frustration",
         gif:  "u0kxUtHbdCKs0.webp",
         mask: "irregular1.png",
-        color: "C0CC0C"
+        color: "C0CC0C",
+        degrees: 315
     },
     2: {
         text: "you're angry.",
