@@ -70,7 +70,7 @@ const ANGRY_GAMEPLAY = {
         text: "activated emergency angry mode",
         fontWeight: 700,
         shakiness: 10,
-        sfx: "cryThree",
+        sfx: "soAnger",
         gif: "XEVHFzjPzjQy1uCulo.webp",
         mask: "irregular1.png",
         color: "CC0D39"
@@ -85,7 +85,7 @@ const ANGRY_GAMEPLAY = {
         text: "now you have a tomato",
         fontWeight: 400,
         shakiness: 11,
-        sfx: "cryThree"
+        sfx: "frustration"
     },
     9: {
         text: " ",
@@ -97,6 +97,6 @@ const ANGRY_GAMEPLAY = {
         text: "alright you reached max angertude for now",
         fontWeight: 200,
         shakiness: 100,
-        sfx: "cryTwo"
+        sfx: "cryThree"
     }
 };
