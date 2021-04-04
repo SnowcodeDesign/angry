@@ -12,6 +12,10 @@ function getAngerButtonElement() {
     return document.getElementById("button-image");
 }
 
+function getAngerBackgroundElement() {
+    return document.getElementById("background");
+}
+
 function setAngerCaptionText(text) {
     const element = getAngerCaptionTextElement();
     const uppercasedText = text.toUpperCase();
@@ -22,6 +26,15 @@ function setAngerCaptionText(text) {
 function setAngerFontWeight(fontWeight) {
     const element = getAngerCaptionTextElement();
     element.style.fontWeight = fontWeight;
+}
+
+function setAngerBackgroundColor(color) {
+    if (!color) {
+        return;
+    }
+    
+    const element = getAngerBackgroundElement();
+    element.style.backgroundColor = color;
 }
 
 function setAngerShakiness(shakiness) {
@@ -128,7 +141,7 @@ function playAngrySFX(name) {
 }
 
 /* GIF Handling */
-function playAngerGIF(name) {
+function playAngerGIF(name, mask=null) {
     const gifsContainer = document.getElementById('anger-gifs');
     while (gifsContainer.firstChild) {
         gifsContainer.removeChild(gifsContainer.firstChild);
@@ -149,6 +162,15 @@ function playAngerGIF(name) {
     gifElement.style.objectFit = 'cover';
     gifElement.style.borderRadius = '10px';
     gifElement.style.backgroundColor = 'rgba(0,0,0,0.2)';
+    // gifElement.style.animation = `shake 5s ease-in-out 0s infinite`;
+
+    if (mask) {
+        gifElement.style.webkitMaskImage = `url(/mask/${mask})`;
+        gifElement.style.webkitMaskPosition = "center";
+        gifElement.style.webkitMaskSize = "contain";
+        gifElement.style.webkitMaskRepeat = "no-repeat";
+    }
+
     gifsContainer.appendChild(gifElement);
 }
 
@@ -165,12 +187,13 @@ function handleAngryAmount(amount) {
         dataForAngeryLevel = ANGRY_CAPTION_TEXTS[maxAngerLevelWithText];
     }
 
-    const { text, fontWeight, shakiness, sfx, gif } = dataForAngeryLevel;
+    const { text, fontWeight, shakiness, sfx, gif, mask, color } = dataForAngeryLevel;
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
+    setAngerBackgroundColor(color);
     playAngrySFX(sfx);
-    playAngerGIF(gif);
+    playAngerGIF(gif, mask);
 }
 
 /* Flow for Footer Attr/Credits */
@@ -227,11 +250,12 @@ function loadAngry() {
         handleAngryAmount(angry_clicks);
     });
 
-    const { text, fontWeight, shakiness, gif } = ANGRY_CAPTION_TEXTS[0];
+    const { text, fontWeight, shakiness, gif, mask, color } = ANGRY_CAPTION_TEXTS[0];
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
-    playAngerGIF(gif);
+    setAngerBackgroundColor(color);
+    playAngerGIF(gif, mask);
 
     const footerElement = document.getElementById("footer-coffee");
     const footerBodyElement = document.getElementById("footer-body");

@@ -96,6 +96,8 @@ html, body {
     background-color: var(--angry-bg);
 
     overflow: scroll;
+
+    transition: background-color 0.2s ease-in-out;
 }
 
 /** Container */
