@@ -13,7 +13,7 @@
  * - mask (name of png or compatible <img> mask used via -webkit-mask on the gif, filename from /mask/ directory, requires gif to be visible)
  * - color (hex code of background color of site, will be stuck on last value if none given)
  */
-const ANGRY_CAPTION_TEXTS = {
+const ANGRY_GAMEPLAY = {
     0: {
         text: "am i angry?",
         fontWeight: 200,

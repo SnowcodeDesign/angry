@@ -32,7 +32,7 @@ function setAngerBackgroundColor(color) {
     if (!color) {
         return;
     }
-    
+
     const element = getAngerBackgroundElement();
     element.style.backgroundColor = color;
 }
@@ -177,14 +177,14 @@ function playAngerGIF(name, mask=null) {
 /* Core Flow: Handlers for Anger Level */
 function handleAngryAmount(amount) {
     // change text
-    let dataForAngeryLevel = ANGRY_CAPTION_TEXTS[amount];
+    let dataForAngeryLevel = ANGRY_GAMEPLAY[amount];
 
     if (!dataForAngeryLevel) {
-        const sortedAngerLevels = Object.keys(ANGRY_CAPTION_TEXTS);
+        const sortedAngerLevels = Object.keys(ANGRY_GAMEPLAY);
         sortedAngerLevels.map(key => parseInt(key, 10)).sort();
 
         const maxAngerLevelWithText = sortedAngerLevels[sortedAngerLevels.length-1];
-        dataForAngeryLevel = ANGRY_CAPTION_TEXTS[maxAngerLevelWithText];
+        dataForAngeryLevel = ANGRY_GAMEPLAY[maxAngerLevelWithText];
     }
 
     const { text, fontWeight, shakiness, sfx, gif, mask, color } = dataForAngeryLevel;
@@ -250,7 +250,7 @@ function loadAngry() {
         handleAngryAmount(angry_clicks);
     });
 
-    const { text, fontWeight, shakiness, gif, mask, color } = ANGRY_CAPTION_TEXTS[0];
+    const { text, fontWeight, shakiness, gif, mask, color } = ANGRY_GAMEPLAY[0];
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);

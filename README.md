@@ -12,9 +12,10 @@ you can also view our staging environment here: https://howmadareyou.netlify.app
 
 ## ⚒️ Usage
 
-built with vanilla html, css, and js. very easy to extend and understand. all necessary files are in the `dist/` folder and prefixed with `angry_`. the most essential file to expand upon is the `angry_caption_texts.js` which supplies the underlying "gameplay" data:
+built with vanilla html, css, and js. very easy to extend and understand. all necessary files are in the `dist/` folder and prefixed with `angry_`. the most essential file to expand upon is the [angry_gameplay.js](dist/angry_gameplay.js) which supplies the underlying "gameplay" data:
 
 ```js
+
 /**
  * JSON representation of the ANGER level.
  * Once the max level is reached, the text will be stuck there, but the sfx will continue to be played each click.
@@ -26,81 +27,27 @@ built with vanilla html, css, and js. very easy to extend and understand. all ne
  * - shakiness (x/10 amount of seconds)
  * - sfx (name of audio track, cryTwo, cryThree, soAnger, or frustration)
  * - gif (name of gif or compatible <img> track, filename from /gif/ directory)
+ * - mask (name of png or compatible <img> mask used via -webkit-mask on the gif, filename from /mask/ directory, requires gif to be visible)
+ * - color (hex code of background color of site, will be stuck on last value if none given)
  */
-const ANGRY_CAPTION_TEXTS = {
+const ANGRY_GAMEPLAY = {
     0: {
         text: "am i angry?",
         fontWeight: 200,
         shakiness: 0,
         sfx: "",
+        color: "EA313D"
     },
     1: {
         text: "oh angry, much?",
         fontWeight: 300,
         shakiness: 1,
         sfx: "frustration",
-        gif:  "u0kxUtHbdCKs0.webp"
+        gif:  "u0kxUtHbdCKs0.webp",
+        mask: "irregular1.png",
+        color: "DA0000"
     },
-    2: {
-        text: "you're angry.",
-        fontWeight: 300,
-        shakiness: 2,
-        sfx: "soAnger",
-        gif:  "1yiPpiqnOINUovWlCq.gif"
-    },
-    3: {
-        text: "ok, very angry?",
-        fontWeight: 400,
-        shakiness: 3,
-        sfx: "cryTwo",
-        gif:  "3o7bu8mwh3U6SXtLjy.webp"
-    },
-    4: {
-        text: "confirmed: super angry",
-        fontWeight: 400,
-        shakiness: 6,
-        sfx: "cryThree",
-        gif:  "fBGj9VkflVGgeMUbje.webp"
-    },
-    5: {
-        text: "red alert red alert how angry can you get",
-        fontWeight: 700,
-        shakiness: 8,
-        sfx: "cryTwo",
-        gif:  "VgfPDtZemTEHLaHnP1.webp"
-    },
-    6: {
-        text: "activated emergency angry mode",
-        fontWeight: 700,
-        shakiness: 10,
-        sfx: "cryThree",
-        gif: "XEVHFzjPzjQy1uCulo.webp"
-    },
-    7: {
-        text: "unlocked: nothing",
-        fontWeight: 200,
-        shakiness: 0,
-        sfx: ""
-    },
-    8: {
-        text: "now you have a tomato",
-        fontWeight: 400,
-        shakiness: 11,
-        sfx: "cryThree"
-    },
-    9: {
-        text: " ",
-        fontWeight: 400,
-        shakiness: 0,
-        sfx: ""
-    },
-    10: {
-        text: "alright you reached max angertude for now",
-        fontWeight: 200,
-        shakiness: 100,
-        sfx: "cryTwo"
-    }
-};
+    ...
 ```
 
 ## 📝 Authors
