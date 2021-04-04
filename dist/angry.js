@@ -162,7 +162,7 @@ function playAngerGIF(name, mask=null, degrees=null, removeExistingGifs=false) {
     const gifElement = document.createElement('img');
     gifElement.src = `/gif/${name}`;
     gifElement.style.userSelect = 'none';
-    gifElement.style.position = 'fixed';
+    gifElement.style.position = 'absolute';
     gifElement.style.width = '120px';
     gifElement.style.height = '120px';
 
