@@ -12,6 +12,7 @@
  * - gif (name of gif or compatible <img> track, filename from /gif/ directory)
  * - mask (name of png or compatible <img> mask used via -webkit-mask on the gif, filename from /mask/ directory, requires gif to be visible)
  * - color (hex code of background color of site, will be stuck on last value if none given)
+ * - degrees (degrees offset to use for position when displaying gif, calculated from center of thumbs down hand)
  */
 const ANGRY_GAMEPLAY = {
     0: {

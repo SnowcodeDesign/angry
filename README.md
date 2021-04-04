@@ -15,7 +15,6 @@ you can also view our staging environment here: https://howmadareyou.netlify.app
 built with vanilla html, css, and js. very easy to extend and understand. all necessary files are in the `dist/` folder and prefixed with `angry_`. the most essential file to expand upon is the [angry_gameplay.js](dist/angry_gameplay.js) which supplies the underlying "gameplay" data:
 
 ```js
-
 /**
  * JSON representation of the ANGER level.
  * Once the max level is reached, the text will be stuck there, but the sfx will continue to be played each click.
@@ -29,14 +28,15 @@ built with vanilla html, css, and js. very easy to extend and understand. all ne
  * - gif (name of gif or compatible <img> track, filename from /gif/ directory)
  * - mask (name of png or compatible <img> mask used via -webkit-mask on the gif, filename from /mask/ directory, requires gif to be visible)
  * - color (hex code of background color of site, will be stuck on last value if none given)
+ * - degrees (degrees offset to use for position when displaying gif, calculated from center of thumbs down hand)
  */
 const ANGRY_GAMEPLAY = {
     0: {
-        text: "am i angry?",
+        text: "how mad are you today?",
         fontWeight: 200,
         shakiness: 0,
         sfx: "",
-        color: "EA313D"
+        color: "var(--angry-bg)"
     },
     1: {
         text: "oh angry, much?",
@@ -45,7 +45,8 @@ const ANGRY_GAMEPLAY = {
         sfx: "frustration",
         gif:  "u0kxUtHbdCKs0.webp",
         mask: "irregular1.png",
-        color: "DA0000"
+        color: "C0CC0C",
+        degrees: 270
     },
     ...
 ```
