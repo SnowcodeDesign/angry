@@ -127,6 +127,31 @@ function playAngrySFX(name) {
     audioToPlay.play();
 }
 
+/* GIF Handling */
+function playAngerGIF(name) {
+    const gifsContainer = document.getElementById('anger-gifs');
+    while (gifsContainer.firstChild) {
+        gifsContainer.removeChild(gifsContainer.firstChild);
+    }
+    
+    if (!name) {
+        return;
+    }
+
+    const gifElement = document.createElement('img');
+    gifElement.src = `/gif/${name}`;
+    gifElement.style.userSelect = 'none';
+    gifElement.style.position = 'fixed';
+    gifElement.style.width = '120px';
+    gifElement.style.height = '120px';
+    gifElement.style.top = '10%';
+    gifElement.style.left  = '10%';
+    gifElement.style.objectFit = 'cover';
+    gifElement.style.borderRadius = '10px';
+    gifElement.style.backgroundColor = 'rgba(0,0,0,0.2)';
+    gifsContainer.appendChild(gifElement);
+}
+
 /* Core Flow: Handlers for Anger Level */
 function handleAngryAmount(amount) {
     // change text
@@ -140,11 +165,12 @@ function handleAngryAmount(amount) {
         dataForAngeryLevel = ANGRY_CAPTION_TEXTS[maxAngerLevelWithText];
     }
 
-    const { text, fontWeight, shakiness, sfx } = dataForAngeryLevel;
+    const { text, fontWeight, shakiness, sfx, gif } = dataForAngeryLevel;
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
     playAngrySFX(sfx);
+    playAngerGIF(gif);
 }
 
 /* Flow for Footer Attr/Credits */
@@ -201,10 +227,11 @@ function loadAngry() {
         handleAngryAmount(angry_clicks);
     });
 
-    const { text, fontWeight, shakiness } = ANGRY_CAPTION_TEXTS[0];
+    const { text, fontWeight, shakiness, gif } = ANGRY_CAPTION_TEXTS[0];
     setAngerCaptionText(text);
     setAngerFontWeight(fontWeight);
     setAngerShakiness(shakiness);
+    playAngerGIF(gif);
 
     const footerElement = document.getElementById("footer-coffee");
     const footerBodyElement = document.getElementById("footer-body");

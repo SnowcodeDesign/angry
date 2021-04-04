@@ -157,6 +157,11 @@ html, body {
     transition: transform 0.242s ease-in-out;
 }
 
+#anger-gifs {
+    pointer-events: none;
+    user-select: none;
+}
+
 /** Caption */
 
 #caption {
