@@ -55,6 +55,11 @@ function init() {
     const loader = new THREE.OBJLoader();
 
     loader.load("threejs/15809_Thumbs_Up_v1.obj", function(obj) {
+        const buttonHand = document.getElementById("button-hand");
+        buttonHand.parentElement.removeChild(buttonHand);
+
+        container.style.display = "block";
+
         scene.add(obj);
     });
 

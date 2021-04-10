@@ -139,6 +139,7 @@ html, body {
 }
 
 #angry-3d {
+    display: none;
     width: 400px;
     height: 400px;
     margin-left: auto;
@@ -146,7 +147,6 @@ html, body {
 }
 
 #button-image svg {
-    display: none;
     transition: all 0.242s ease-in-out;
 }
 

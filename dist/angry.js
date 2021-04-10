@@ -17,7 +17,12 @@ function getAngerBackgroundElement() {
 }
 
 function getAngerButtonHandElement() {
-    return document.getElementById("angry-3d"); // "button-hand"
+    const buttonHand = document.getElementById("button-hand");
+    if (!buttonHand) {
+        return document.getElementById("angry-3d");
+    }
+
+    return buttonHand;
 }
 
 function setAngerCaptionText(text) {
@@ -275,9 +280,14 @@ function loadAngry() {
     loadAngryFonts();
     loadAllAudioTracks();
 
-    const threeDElement = getAngerButtonHandElement();
+    document.body.addEventListener("click", (event) => {
+        const target = event.target;
+        const buttonElement = getAngerButtonHandElement();
+        if (buttonElement.id !== target.id && 
+            buttonElement.id !== target.parentElement.id) {
+            return;
+        }
 
-    threeDElement.addEventListener("click", (event) => {
         angry_clicks = angry_clicks + 1;
         handleAngryAmount(angry_clicks);
     });
