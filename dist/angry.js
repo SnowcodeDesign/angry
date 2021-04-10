@@ -16,6 +16,10 @@ function getAngerBackgroundElement() {
     return document.getElementById("background");
 }
 
+function getAngerButtonHandElement() {
+    return document.getElementById("angry-3d"); // "button-hand"
+}
+
 function setAngerCaptionText(text) {
     const element = getAngerCaptionTextElement();
     const uppercasedText = text.toUpperCase();
@@ -168,7 +172,7 @@ function playAngerGIF(name, mask=null, degrees=null, removeExistingGifs=false) {
 
     const degreesNonNull = degrees ? degrees : 0;
     const radius = 170;
-    const buttonRect = document.getElementById("button-hand").getBoundingClientRect();
+    const buttonRect = getAngerButtonHandElement().getBoundingClientRect();
     const centerX = buttonRect.x + (buttonRect.width / 2) - 50;
     const centerY = buttonRect.y + (buttonRect.height / 2) - 50;
     const degreesToRadians = degrees * (Math.PI / 180);
@@ -271,9 +275,9 @@ function loadAngry() {
     loadAngryFonts();
     loadAllAudioTracks();
 
-    const buttonElement = document.getElementById("button-hand");
-    
-    buttonElement.addEventListener("click", (event) => {
+    const threeDElement = getAngerButtonHandElement();
+
+    threeDElement.addEventListener("click", (event) => {
         angry_clicks = angry_clicks + 1;
         handleAngryAmount(angry_clicks);
     });
